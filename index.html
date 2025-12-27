@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Video Editor | Templates & Tutorials</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --accent-color: #ec4899;
+            --dark-bg: #0f172a;
+            --light-bg: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* Templates Section */
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .template-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .template-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .template-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+        }
+
+        .template-content {
+            padding: 1.5rem;
+        }
+
+        .template-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .template-content p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .template-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .btn-small {
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .btn-small:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* YouTube Videos Section */
+        .videos-section {
+            background: var(--light-bg);
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .video-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .play-button {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .video-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Posts Section */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .post-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .post-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .post-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-card h3 {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .post-card p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .read-more:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--dark-bg);
+            color: var(--white);
+        }
+
+        .contact-section .section-title,
+        .contact-section .section-subtitle {
+            color: var(--white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-family: inherit;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">✂️ EditPro</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#templates">Templates</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#posts">Posts</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Professional Video Editing Services</h1>
+            <p>Transform your content with premium templates, free tutorials, and expert editing tips</p>
+            <div class="cta-buttons">
+                <a href="#templates" class="btn btn-primary">Browse Templates</a>
+                <a href="#videos" class="btn btn-secondary">Watch Tutorials</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Templates Section -->
+    <section id="templates">
+        <div class="container">
+            <h2 class="section-title">Premium Templates</h2>
+            <p class="section-subtitle">High-quality editing templates to elevate your projects</p>
+            <div class="templates-grid">
+                <div class="template-card">
+                    <div class="template-image">🎬</div>
+                    <div class="template-content">
+                        <h3>Cinematic Intro Pack</h3>
+                        <p>Professional intro templates for YouTube, Instagram, and more</p>
+                        <div class="template-price">$29.99</div>
+                        <button class="btn-small">Purchase Now</button>
+                    </div>
+                </div>
+                <div class="template-card">
+                    <div class="template-image">✨</div>
+                    <div class="template-content">
+                        <h3>Transitions Bundle</h3>
+                        <p>50+ smooth transitions for seamless video editing</p>
+                        <div class="template-price">$19.99</div>
+                        <button class="btn-small">Purchase Now</button>
+                    </div>
+                </div>
+                <div class="template-card">
+                    <div class="template-image">🎨</div>
+                    <div class="template-content">
+                        <h3>Color Grading Presets</h3>
+                        <p>Professional color grading presets for any mood</p>
+                        <div class="template-price">$24.99</div>
+                        <button class="btn-small">Purchase Now</button>
+                    </div>
+                </div>
+                <div class="template-card">
+                    <div class="template-image">📱</div>
+                    <div class="template-content">
+                        <h3>Social Media Pack</h3>
+                        <p>Templates optimized for Instagram, TikTok, and Reels</p>
+                        <div class="template-price">$15.99</div>
+                        <button class="btn-small">Purchase Now</button>
+                    </div>
+                </div>
+                <div class="template-card">
+                    <div class="template-image">🎵</div>
+                    <div class="template-content">
+                        <h3>Music Video Templates</h3>
+                        <p>Dynamic templates perfect for music videos and vlogs</p>
+                        <div class="template-price">$34.99</div>
+                        <button class="btn-small">Purchase Now</button>
+                    </div>
+                </div>
+                <div class="template-card">
+                    <div class="template-image">💼</div>
+                    <div class="template-content">
+                        <h3>Corporate Video Pack</h3>
+                        <p>Professional templates for business and corporate content</p>
+                        <div class="template-price">$39.99</div>
+                        <button class="btn-small">Purchase Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Videos Section -->
+    <section class="videos-section" id="videos">
+        <div class="container">
+            <h2 class="section-title">Free YouTube Tutorials</h2>
+            <p class="section-subtitle">Learn professional editing techniques with our free video tutorials</p>
+            <div class="videos-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Getting Started with Video Editing</h3>
+                        <p>Learn the basics of professional video editing in this comprehensive tutorial</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Color Grading Masterclass</h3>
+                        <p>Master the art of color grading and create cinematic looks</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Advanced Transitions Tutorial</h3>
+                        <p>Create smooth and professional transitions between clips</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Motion Graphics Basics</h3>
+                        <p>Learn how to add dynamic motion graphics to your videos</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Audio Editing Essentials</h3>
+                        <p>Improve your videos with professional audio editing techniques</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Export Settings Guide</h3>
+                        <p>Learn the best export settings for different platforms</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Posts Section -->
+    <section id="posts">
+        <div class="container">
+            <h2 class="section-title">Helpful Posts & Tips</h2>
+            <p class="section-subtitle">Expert advice and tips to improve your editing skills</p>
+            <div class="posts-grid">
+                <div class="post-card">
+                    <div class="post-date">March 15, 2024</div>
+                    <h3>10 Essential Editing Tips for Beginners</h3>
+                    <p>Discover the fundamental techniques that every video editor should know to create professional-looking content.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+                <div class="post-card">
+                    <div class="post-date">March 10, 2024</div>
+                    <h3>Best Software for Video Editing in 2024</h3>
+                    <p>Compare the top video editing software options and find the perfect tool for your needs and budget.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+                <div class="post-card">
+                    <div class="post-date">March 5, 2024</div>
+                    <h3>How to Create Engaging Social Media Content</h3>
+                    <p>Learn the secrets to creating viral-worthy content that captures attention and drives engagement.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+                <div class="post-card">
+                    <div class="post-date">February 28, 2024</div>
+                    <h3>Color Theory in Video Editing</h3>
+                    <p>Understand how color affects emotions and learn to use it effectively in your video projects.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+                <div class="post-card">
+                    <div class="post-date">February 20, 2024</div>
+                    <h3>Optimizing Videos for Different Platforms</h3>
+                    <p>Master the art of formatting and optimizing your videos for YouTube, Instagram, TikTok, and more.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+                <div class="post-card">
+                    <div class="post-date">February 15, 2024</div>
+                    <h3>Building Your Editing Workflow</h3>
+                    <p>Create an efficient editing workflow that saves time and improves the quality of your final product.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Have questions or need custom editing services? Let's talk!</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>📧 Email: editor@example.com</p>
+                    <p>📱 Phone: +1 (555) 123-4567</p>
+                    <p>📍 Location: Available Worldwide</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">▶</a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 1.5rem;">Send a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 EditPro. All rights reserved. | Professional Video Editing Services</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Video card click handler (you can integrate with YouTube API)
+        document.querySelectorAll('.video-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Replace with your actual YouTube video URL
+                const videoTitle = this.querySelector('h3').textContent;
+                alert(`Opening video: ${videoTitle}\n\nYou can integrate this with YouTube API to open actual videos.`);
+            });
+        });
+
+        // Form submission handler
+        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Template purchase buttons
+        document.querySelectorAll('.btn-small').forEach(button => {
+            button.addEventListener('click', function() {
+                const templateName = this.closest('.template-card').querySelector('h3').textContent;
+                alert(`Thank you for your interest in "${templateName}"!\n\nYou can integrate this with a payment system like Stripe or PayPal.`);
+            });
+        });
+    </script>
+</body>
+</html>
+
